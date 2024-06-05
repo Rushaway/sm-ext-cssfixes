@@ -248,13 +248,13 @@ static struct SrcdsPatch
 		"cstrike/bin/server_srv.so"
 	},
 	// 13: CGameMovement::LadderMove NOP out player->SetGravity( 0 );
-    {
-        "_ZN13CGameMovement10LadderMoveEv",
-        (unsigned char *)"\xC7\x80\x78\x02\x00\x00\x00\x00\x00\x00",
-        "xxxxxxx???",
-        (unsigned char *)"\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90",
-        "cstrike/bin/server_srv.so"
-    },
+	{
+		"_ZN13CGameMovement10LadderMoveEv",
+		(unsigned char *)"\xC7\x80\x78\x02\x00\x00\x00\x00\x00\x00",
+		"xxxxxxx???",
+		(unsigned char *)"\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90",
+		"cstrike/bin/server_srv.so"
+	},
 };
 
 class CBaseEntity;
