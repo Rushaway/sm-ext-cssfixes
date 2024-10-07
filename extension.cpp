@@ -489,7 +489,7 @@ DETOUR_DECL_MEMBER0(DETOUR_FindUseEntity, CBaseEntity *)
 }
 DETOUR_DECL_MEMBER3(DETOUR_CTraceFilterSimple, void, const IHandleEntity *, passedict, int, collisionGroup, ShouldHitFunc_t, pExtraShouldHitFunc)
 {
-	if (this == nullptr || passedict == nullptr || pExtraShouldHitFunc == nullptr)
+	if (passedict == nullptr || pExtraShouldHitFunc == nullptr)
 		return;
 
 	DETOUR_MEMBER_CALL(DETOUR_CTraceFilterSimple)(passedict, collisionGroup, pExtraShouldHitFunc);
