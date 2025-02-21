@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-20.04]
-        sourcemod-version: [1.12-dev]
+        sourcemod-version: [1.13-dev]
         include:
           - os: ubuntu-20.04
             target-archs: x86,x86_64
@@ -77,8 +77,12 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: ${{ runner.os }}
-          path: extension/build/CSSFixes.ext.2.css/**/CSSFixes.ext.2.css
+          name: CSSFixes
+          path: |
+            extension/build/CSSFixes.ext.2.css/linux-x86/CSSFixes.ext.2.css
+            extension/build/CSSFixes.ext.2.css/linux-x86/addons/sourcemod/**
+            extension/build/CSSFixes.ext.2.css/linux-x86_64/CSSFixes.ext.2.css
+            extension/build/CSSFixes.ext.2.css/linux-x86_64/addons/sourcemod/**
           if-no-files-found: error
 
   release:
