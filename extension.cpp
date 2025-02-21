@@ -222,26 +222,26 @@ static struct SrcdsPatch
 		(unsigned char *)"\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x8D\x65",
 		"cstrike/bin/server_srv.so"
 	},
-	// 10: fix server lagging resulting from too many ConMsgs due to packet spam
-	{
-		"_ZN8CNetChan19ProcessPacketHeaderEP11netpacket_s",
-		(unsigned char *)"_Z6ConMsgPKcz",
-		"xxxxx",
-		(unsigned char *)"\x90\x90\x90\x90\x90",
-		"bin/engine_srv.so",
-		0x7d1, 100,
-		true, "bin/libtier0_srv.so"
-	},
-	// 11: fix server lagging resulting from too many ConMsgs due to packet spam
-	{
-		"_Z11NET_GetLongiP11netpacket_s",
-		(unsigned char *)"Msg",
-		"xxxxx",
-		(unsigned char *)"\x90\x90\x90\x90\x90",
-		"bin/engine_srv.so",
-		0x800, 100,
-		true, "bin/libtier0_srv.so"
-	},
+	// // 10: fix server lagging resulting from too many ConMsgs due to packet spam
+	// {
+	// 	"_ZN8CNetChan19ProcessPacketHeaderEP11netpacket_s",
+	// 	(unsigned char *)"_Z6ConMsgPKcz",
+	// 	"xxxxx",
+	// 	(unsigned char *)"\x90\x90\x90\x90\x90",
+	// 	"bin/engine_srv.so",
+	// 	0x7d1, 100,
+	// 	true, "bin/libtier0_srv.so"
+	// },
+	// // 11: fix server lagging resulting from too many ConMsgs due to packet spam
+	// {
+	// 	"_Z11NET_GetLongiP11netpacket_s",
+	// 	(unsigned char *)"Msg",
+	// 	"xxxxx",
+	// 	(unsigned char *)"\x90\x90\x90\x90\x90",
+	// 	"bin/engine_srv.so",
+	// 	0x800, 100,
+	// 	true, "bin/libtier0_srv.so"
+	// },
 	// 12: Always transmit point_viewcontrol (for debugging)
 	/*
 	{
