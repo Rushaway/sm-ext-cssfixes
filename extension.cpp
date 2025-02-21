@@ -160,9 +160,9 @@ static struct SrcdsPatch
 	// 1: player_speedmod should not turn off flashlight
 	{
 		"_ZN17CMovementSpeedMod13InputSpeedModER11inputdata_t",
-		(unsigned char *)"\x0F\x85\x00\x00\x00\x00\x83\xEC\x0C\x57\xE8\x1D\xFF\xFF\xFF\x83\xC4\x10\x09\x83",
-		"xx????xx?xx????xx?xx",
-		(unsigned char *)"\x90\x90\x90\x90\x90\x90\x83\xEC\x0C\x57\xE8\x1D\xFF\xFF\xFF\x83\xC4\x10\x09\x83",
+		(unsigned char *)"\x8B\x90\xA4\x05\x00\x00\x81\xFA\x10\x6E\x3E\x00\x0F\x85\xC7\x02\x00\x00",
+		"xx????xx????xx????",
+		(unsigned char *)"\x8B\x90\xA4\x05\x00\x00\x81\xFA\x10\x6E\x3E\x00\x0F\x84\xC7\x02\x00\x00",
 		"cstrike/bin/server_srv.so"
 	},
 	// 2: only select CT spawnpoints
@@ -222,26 +222,26 @@ static struct SrcdsPatch
 		(unsigned char *)"\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x90\x8D\x65",
 		"cstrike/bin/server_srv.so"
 	},
-	// // 10: fix server lagging resulting from too many ConMsgs due to packet spam
-	// {
-	// 	"_ZN8CNetChan19ProcessPacketHeaderEP11netpacket_s",
-	// 	(unsigned char *)"_Z6ConMsgPKcz",
-	// 	"xxxxx",
-	// 	(unsigned char *)"\x90\x90\x90\x90\x90",
-	// 	"bin/engine_srv.so",
-	// 	0x7d1, 100,
-	// 	true, "bin/libtier0_srv.so"
-	// },
-	// // 11: fix server lagging resulting from too many ConMsgs due to packet spam
-	// {
-	// 	"_Z11NET_GetLongiP11netpacket_s",
-	// 	(unsigned char *)"Msg",
-	// 	"xxxxx",
-	// 	(unsigned char *)"\x90\x90\x90\x90\x90",
-	// 	"bin/engine_srv.so",
-	// 	0x800, 100,
-	// 	true, "bin/libtier0_srv.so"
-	// },
+	// 10: fix server lagging resulting from too many ConMsgs due to packet spam
+	{
+		"_ZN8CNetChan19ProcessPacketHeaderEP11netpacket_s",
+		(unsigned char *)"_Z6ConMsgPKcz",
+		"xxxxx",
+		(unsigned char *)"\x90\x90\x90\x90\x90",
+		"bin/engine_srv.so",
+		0x7d1, 100,
+		true, "bin/libtier0_srv.so"
+	},
+	// 11: fix server lagging resulting from too many ConMsgs due to packet spam
+	{
+		"_Z11NET_GetLongiP11netpacket_s",
+		(unsigned char *)"Msg",
+		"xxxxx",
+		(unsigned char *)"\x90\x90\x90\x90\x90",
+		"bin/engine_srv.so",
+		0x800, 100,
+		true, "bin/libtier0_srv.so"
+	},
 	// 12: Always transmit point_viewcontrol (for debugging)
 	/*
 	{
