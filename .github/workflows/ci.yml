@@ -79,10 +79,9 @@ jobs:
         with:
           name: CSSFixes
           path: |
+            extension/build/CSSFixes.ext.2.css/addons/sourcemod/
             extension/build/CSSFixes.ext.2.css/linux-x86/CSSFixes.ext.2.css
-            extension/build/CSSFixes.ext.2.css/linux-x86/addons/sourcemod/**
             extension/build/CSSFixes.ext.2.css/linux-x86_64/CSSFixes.ext.2.css
-            extension/build/CSSFixes.ext.2.css/linux-x86_64/addons/sourcemod/**
           if-no-files-found: error
 
   release:
