@@ -78,8 +78,8 @@ jobs:
         run: |
           mkdir -p artifact/addons/sourcemod/extensions
           cp -r extension/addons/sourcemod/* artifact/addons/sourcemod/
-          cp extension/build/CSSFixes.ext.2.css/linux-x86/CSSFixes.ext.2.css artifact/addons/sourcemod/extensions/CSSFixes.ext.2.css.linux-x86
-          cp extension/build/CSSFixes.ext.2.css/linux-x86_64/CSSFixes.ext.2.css artifact/addons/sourcemod/extensions/CSSFixes.ext.2.css.linux-x86_64
+          cp extension/build/CSSFixes.ext.2.css/linux-x86/CSSFixes.ext.2.css.so artifact/addons/sourcemod/extensions/CSSFixes.ext.2.css.linux-x86
+          cp extension/build/CSSFixes.ext.2.css/linux-x86_64/CSSFixes.ext.2.css.so artifact/addons/sourcemod/extensions/CSSFixes.ext.2.css.linux-x86_64
       
       - name: Upload artifact
         uses: actions/upload-artifact@v4
