@@ -76,10 +76,11 @@ jobs:
 
       - name: Prepare artifact structure
         run: |
-          mkdir -p artifact/addons/sourcemod/extensions
+          mkdir -p artifact/addons/sourcemod/extensions/linux-x86
+          mkdir -p artifact/addons/sourcemod/extensions/linux-x86_64
           cp -r extension/addons/sourcemod/* artifact/addons/sourcemod/
-          cp extension/build/CSSFixes.ext.2.css/linux-x86/CSSFixes.ext.2.css.so artifact/addons/sourcemod/extensions/CSSFixes.ext.2.css.linux-x86
-          cp extension/build/CSSFixes.ext.2.css/linux-x86_64/CSSFixes.ext.2.css.so artifact/addons/sourcemod/extensions/CSSFixes.ext.2.css.linux-x86_64
+          cp extension/build/CSSFixes.ext.2.css/linux-x86/CSSFixes.ext.2.css.so artifact/addons/sourcemod/extensions/linux-x86/
+          cp extension/build/CSSFixes.ext.2.css/linux-x86_64/CSSFixes.ext.2.css.so artifact/addons/sourcemod/extensions/linux-x86_64/
       
       - name: Upload artifact
         uses: actions/upload-artifact@v4
