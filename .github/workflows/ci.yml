@@ -72,14 +72,14 @@ jobs:
           ambuild
 
       - name: Debug - List files
-        run: ls -R
-  
+        run: ls -R extension/build
+
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: ${{ runner.os }}
-          path: extension/build/package
-
+          path: extension/build/CSSFixes.ext.2.css/**
+          if-no-files-found: warn
 
   release:
     name: Release
@@ -96,15 +96,15 @@ jobs:
           version=`echo $GITHUB_REF | sed "s/refs\/tags\///"`
           if [ -d "./Linux/" ]; then
             cd ./Linux/
-            tar -czf ../${{ github.event.repository.name }}-${version}-linux.tar.gz -T <(\ls -1)
+            tar -czf ../${{ github.event.repository.name }}-${version}-linux.tar.gz -T <(\ls -)
           fi
           if [ -d "./macOS/" ]; then
             cd ./macOS/
-            tar -czf ../${{ github.event.repository.name }}-${version}-mac.tar.gz -T <(\ls -1)
+            tar -czf ../${{ github.event.repository.name }}-${version}-mac.tar.gz -T <(\ls -)
           fi
           if [ -d "./Windows/" ]; then
             cd ./Windows/
-            tar -czf ../${{ github.event.repository.name }}-${version}-windows.tar.gz -T <(\ls -1)
+            tar -czf ../${{ github.event.repository.name }}-${version}-windows.tar.gz -T <(\ls -)
           fi
 
       - name: Release
