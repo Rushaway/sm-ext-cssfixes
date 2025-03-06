@@ -10,7 +10,7 @@ jobs:
       fail-fast: false
       matrix:
         os: [ubuntu-20.04]
-        sourcemod-version: [master]
+        sourcemod-version: [1.12-dev]
         include:
           - os: ubuntu-20.04
             target-archs: x86,x86_64
@@ -70,24 +70,12 @@ jobs:
           mkdir build && cd build
           python ../configure.py --enable-optimize --targets=${{ matrix.target-archs }} --sdks="${{ matrix.sdks }}"
           ambuild
-
-      - name: Prepare artifact structure
-        run: |
-          # linux-x86_64
-          mkdir -p artifact/linux-x86_64/addons/sourcemod/extensions
-          cp -r extension/addons/sourcemod/* artifact/linux-x86_64/addons/sourcemod/
-          cp extension/build/CSSFixes.ext.2.css/linux-x86_64/CSSFixes.ext.2.css.so artifact/linux-x86_64/addons/sourcemod/extensions/
-          # linux-x86
-          mkdir -p artifact/linux-x86/addons/sourcemod/extensions
-          cp -r extension/addons/sourcemod/* artifact/linux-x86/addons/sourcemod/
-          cp extension/build/CSSFixes.ext.2.css/linux-x86/CSSFixes.ext.2.css.so artifact/linux-x86/addons/sourcemod/extensions/
       
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
-          name: CSSFixes
-          path: artifact/**
-          if-no-files-found: error
+          name: ${{ runner.os }}
+          path: extension/build/package
 
   release:
     name: Release
@@ -105,10 +93,6 @@ jobs:
           if [ -d "./Linux/" ]; then
             cd ./Linux/
             tar -czf ../${{ github.event.repository.name }}-${version}-linux.tar.gz -T <(\ls -)
-          fi
-          if [ -d "./macOS/" ]; then
-            cd ./macOS/
-            tar -czf ../${{ github.event.repository.name }}-${version}-mac.tar.gz -T <(\ls -)
           fi
           if [ -d "./Windows/" ]; then
             cd ./Windows/
